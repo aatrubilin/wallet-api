@@ -303,3 +303,4 @@ wallet/media/
 !.envs/.local/
 .idea/
 junit.xml
+.local/
