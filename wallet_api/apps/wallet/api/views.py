@@ -1,7 +1,6 @@
 """."""
 
-from django.db import transaction
-from django.db.models import F
+from rest_framework import filters
 from rest_framework.mixins import (
     CreateModelMixin,
     ListModelMixin,
@@ -26,6 +25,8 @@ class WalletViewSet(
 
     serializer_class = WalletSerializer
     queryset = Wallet.objects.all()
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["label"]
     lookup_field = "pk"
     ordering = ["pk"]
 
@@ -40,5 +41,7 @@ class TransactionViewSet(
 
     serializer_class = TransactionSerializer
     queryset = Transaction.objects.all()
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ["txid"]
     lookup_field = "pk"
     ordering = ["pk"]
