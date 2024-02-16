@@ -59,7 +59,7 @@ jobs:
         with:
           python-version: ${{matrix.python-version}}
           poetry-version: ${{matrix.poetry-version}}
-          install-args: '--only main --only test'
+          install-args: '--only main,test'
 
       - name: Run tests
         env:
